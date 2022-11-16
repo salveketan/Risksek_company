@@ -8,7 +8,7 @@ const Pagination = ({ lastpage, currentPage, onPageChange }) => {
         <div >
             {
                 arr.map((e, page) =>
-                    <button style={{ border: "1px solid blue", width: "30px", height: "30px" }} disabled={(page + 1) === currentPage} onClick={() => onPageChange(page + 1)}>{page + 1}</button>
+                    <button key={page} style={{ border: "1px solid blue", width: "30px", height: "30px" }} disabled={(page + 1) === currentPage} onClick={() => onPageChange(page + 1)}>{page + 1}</button>
                 )
             }
 

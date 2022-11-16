@@ -7,7 +7,6 @@ import Pagination from './Pagination';
 function BasicExample() {
     const [data, setData] = useState([])
     const [name, setName] = useState('');
-    const [loading, setLoading] = useState(true)
     const [page, setPage] = useState(1);
 
     useEffect(() => {
@@ -21,7 +20,7 @@ function BasicExample() {
         })
             .then(res => {
                 setData(res.data);
-                setLoading(false);
+
             })
             .catch(err => {
                 console.log(err);
@@ -81,7 +80,7 @@ function BasicExample() {
                     <button type='submit' onClick={handleSubmit} style={{ border: "1px solid blue" }}>Search</button>
                 </div>
                 <div style={{ display: "flex" }}>
-                    <button disabled={page == 1} onClick={() => setPage(p => p - 1)} style={{ border: "1px solid blue" }}>Prev</button>
+                    <button disabled={page === 1} onClick={() => setPage(p => p - 1)} style={{ border: "1px solid blue" }}>Prev</button>
                     <Pagination lastpage={5} currentPage={page} onPageChange={setPage} />
                     <button onClick={() => setPage(p => p + 1)} style={{ border: "1px solid blue" }}>Next</button>
                 </div>
